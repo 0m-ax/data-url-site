@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Shareable page</title>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jodit/3.1.92/jodit.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jodit/3.1.92/jodit.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jodit/3.1.92/jodit.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jodit/3.1.92/jodit.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/css-toggle-switch@latest/dist/toggle-switch.css">
     <style>
         html,
@@ -96,7 +96,7 @@
             editor.value = '';
             editor.events.on('change', update)
             function update() {
-                document.getElementById('output').value = (document.getElementById('linkable').checked ? 'https://initd-daemon.github.io/data-url#' : 'data:') + "text/html;base64," + btoa(editor.value)
+                document.getElementById('output').value = (document.getElementById('linkable').checked ? 'https://initd-daemon.github.io/data-url#' : 'data:') + "text/html;base64," + btoa(encodeURIComponent(editor.value))
             }
             document.getElementById('linkable').onchange = update
         </script>
